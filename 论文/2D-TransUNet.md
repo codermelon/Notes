@@ -31,9 +31,3 @@ Unet通常在long-range dependency中表现的不太好，因此专门对于sequ
   - 没有使用纯Tranformer作为编码器，首先使用CNN作为特征提取器，生成输入的特征图，将块嵌入应用于CNN提取的特征图而不是原始图像
   - 采用及联的上采样操作达到全分辨率
 
-# Experiments and Discussion
-
-##  Implementation Details
-
-- 数据增强：随机旋转和翻转
-- 
