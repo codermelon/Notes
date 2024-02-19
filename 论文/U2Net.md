@@ -2,11 +2,24 @@
 
 - 类似于UNet结构，但是每一个Encoder和Decoder部分都经过很多个卷积 bn relu
 
-![image-20231019140348198](https://pj-typora.oss-cn-shanghai.aliyuncs.com/image-20231019140348198.png)
+![](https://pj-typora.oss-cn-shanghai.aliyuncs.com/image-20231019140348198.png)
+
+![image-20231019140534139](https://pj-typora.oss-cn-shanghai.aliyuncs.com/image-20231019140534139.png)
 
 - RSU结构中先经过一个卷积，然后是5个encoder，5个decoder，采用线性插值的方法
 
-![image-20231019140534139](https://pj-typora.oss-cn-shanghai.aliyuncs.com/image-20231019140534139.png)
+  - En_1用的RSU-7 下采样32倍
+  - En_2用的RSU-6下采样16倍
+  - En_3用的RSU-5
+  - En_4用的RSU-4
+
+- 注意En_5 En_6 De_5 用的是RSU-4F
+
+  - 为什么用RSU-4F？此时特征图已经很小了，没有必要继续下采样，使用膨胀卷积
+
+  ![image-20231109115615343](https://pj-typora.oss-cn-shanghai.aliyuncs.com/image-20231109115615343.png)
+
+
 
 # 2. 结合代码
 
